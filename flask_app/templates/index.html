@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Notes</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='assets/css/index.css')}}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+    <main class="main-container">
+        <div class="login-system" id="login-panel">
+            <h1>Log-in</h1>
+            <div class="alert alert-danger">
+
+            </div>
+            <div class="login-system-form">
+                <div>
+                    <label for="username-login">Username</label>
+                    <input type="text" maxlength="10" id="username-login" name="login-username" class="login-form" placeholder="Username">
+                </div>
+                <div>
+                    <label for="password-login">Password</label>
+                    <input type="password" maxlength="16" id="password-login" name="login-password" class="login-form" placeholder="Password">
+                </div>
+            </div>
+            <button type="button" id="login-btn-submit" class="btn btn-success bi bi-power"> Sign In</button>
+            <span>¿You don't have an account? <a href=# id="register">click here</a></span>
+        </div>
+        <div class="register-system">
+            <h1>Register</h1>
+            <div class="alert alert-danger">
+
+            </div>
+            <div class="login-system-form">
+                <div>
+                    <label for="username-register">Username</label>
+                    <input type="text" maxlength="10" id="username-register" name="register-username" class="login-form" placeholder="Username">
+                </div>
+                <div>
+                    <label for="password-register">Password</label>
+                    <input type="password" maxlength="16" id="password-register" name="register-password" class="login-form" placeholder="Password">
+                </div>
+                <div>
+                    <label for="confirm-password-register">Confirm password</label>
+                    <input type="password" maxlength="16" id="confirm-password-register" name="register-password2" class="login-form" placeholder="Confirm password">
+                </div>
+            </div>
+            <button type="button" id="register-btn-submit" class="btn btn-primary bi bi-plus-circle"> Register</button>
+            <span>¿You have an account? <a href=# id="login">click here</a></span>
+        </div>
+        <div class="notes-all" id="app">
+            <nav class="notes-nav">
+                <ul>
+                    <li id="panel-home">Home</li>
+                    <li id="panel-mynotes">My Notes</li>
+                    <li id="panel-archivednotes">Archived Notes</li>
+                    <li id="panel-addnotes">Add Note</li>
+                    <li id="logout">Log Out</li>
+                </ul>
+            </nav>
+            <div class="panel-home">
+            </div>
+            <div class="panel-mynotes">
+                <h3>My notes</h3>
+                <nav class="mynotes-nav">
+                    <button type="button" id="create-note" class="btn btn-success bi-pencil-square"> Create Note</button>
+                </nav>
+                <div class="my-notes-all">
+                </div>
+            </div>
+            <div class="panel-archivednotes">
+                <h3>My notes archived</h3>
+                <nav class="mynotes-nav">
+                    <button type="button" class="btn btn-success bi-pencil-square"> Create Note</button>
+                </nav>
+                <div class="my-notes-archived">
+                </div>
+            </div>
+            <div class="panel-addnote">
+                <h3>Add note</h3>
+                <div class="alert alert-danger">
+
+                </div>
+                <div class="notes-add-div">
+                    <label for="note-title">Title</label>
+                    <input type="text" maxlength="20" placeholder="My new note" id="note-title" name="title-note" class="note-title">
+                </div>
+                <div class="notes-add-div">
+                    <label for="">Description</label>
+                    <textarea class="note-description" placeholder="this note its very important" maxlength="255" name="description-note"></textarea>
+                </div>
+                <div class="notes-add-div">
+                    <label for="">Tags</label>
+                    <input type="text" placeholder="Important, Budgets, passwords, etc.." class="note-tags" name="tags-note">
+                </div>
+                <div>
+                    <label for="note-category">Category</label>
+                    <select name="category-note" id="note-category" class="note-category">
+                        <option>Work</option>
+                        <option>Study</option>
+                        <option>Ideas</option>
+                        <option>Reminders</option>
+                        <option>Personal</option>
+                    </select>
+                </div>
+                <button type="button" class="btn btn-success" id="save-new-note">Save Note</button>
+            </div>
+            <div class="panel-editnote">
+            </div>
+        </div>
+    </main>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="{{ url_for('static', filename='assets/js/panel-sync.js')}}" type="module"></script>
+<script src="{{ url_for('static', filename='assets/js/auth-system.js')}}"type="module"></script>
+<script src="{{ url_for('static', filename='assets/js/notes-system.js')}}" type="module"></script>
+</html>
